@@ -1,4 +1,4 @@
-TopCoder-Problems
-=================
+Project Euler and TopCoder-Problems
+====================================
 
-My solutions to archived TopCoder problems
+My solutions to Project Euler and archived TopCoder problems.
