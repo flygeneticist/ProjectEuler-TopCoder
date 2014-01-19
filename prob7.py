@@ -14,11 +14,14 @@
 
 import math
 
-def nth_prime(n):
+def nth_prime(n, starting=3):
 # function will calculate the nth prime in a series. 
     if n > 0:
         primes = [2] # seed the list of primes with 2 to avoid checking obvious nums
-        i = 3
+        if starting%2 == 0:
+            i = starting + 1
+        else:
+            i = starting
         
         while len(primes) < n:
             for e in primes:    
@@ -31,8 +34,8 @@ def nth_prime(n):
                 primes.append(i)
             i += 2
         
-        return primes[n-1]
+        return primes
 
 
 if __name__ == "__main__":
-    print(nth_prime(10001))
+    print(nth_prime(1001)[1000])
