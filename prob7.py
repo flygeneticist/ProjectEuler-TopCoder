@@ -14,22 +14,21 @@
 
 import math
 
-def nth_prime(n, starting=3):
+def nth_prime(n, starting=3, primes=[2]):
 # function will calculate the nth prime in a series. 
+# seed the list of primes with 2 to avoid checking obvious nums
     if n > 0:
-        primes = [2] # seed the list of primes with 2 to avoid checking obvious nums
         if starting%2 == 0:
             i = starting + 1
-        else:
+        else: 
             i = starting
         
         while len(primes) < n:
             for e in primes:    
                 prime_test = True # start loop assuming that the number is a prime.
-                if e <= (math.sqrt(i)):
-                    if i%e == 0: # another number(e) divides evenly into i. 
-                        prime_test = False # prime test has failed
-                        break # break out of the while loop
+                if e <= (math.sqrt(i)) and i%e == 0: # another number(e) divides evenly into i. 
+                    prime_test = False # prime test has failed
+                    break # break out of the loop
             if prime_test: # if i has passed all tests append it to the prime loop
                 primes.append(i)
             i += 2
@@ -38,4 +37,5 @@ def nth_prime(n, starting=3):
 
 
 if __name__ == "__main__":
-    print(nth_prime(1001)[1000])
+    n = input("enter nth prime: ")
+    print(nth_prime(n)[n-1])
