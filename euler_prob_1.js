@@ -4,15 +4,12 @@
 //Find the sum of all the multiples of 3 or 5 below 1000(ie. x).
 function multiples(x) {
 	var sum = 0;
-	for (var num=x; num>0; num--) {
-		if (num%5 == 0) {
-			sum += num;
-		}
-		else if (num%3 == 0) {
+	for (var num=x; num>2; num--) {
+		if ((num%5 == 0) || (num%3 == 0)) {
 			sum += num;
 		}
 	}
 	return sum;
 }
 
-alert(multiples(999));
+alert(multiples(999)); // --> 233168
