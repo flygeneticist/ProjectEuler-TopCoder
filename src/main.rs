@@ -32,14 +32,16 @@ fn main() {
 
         println!("You chose Problem #{}.", choice);
 
-        if dispatch.contains_key(&choice) {
-            println!("~~~ RUNNING PROBLEM #{} NOW ~~~", choice);
-            let solution = dispatch.get(&choice);
-            println!("Solution is: {:?}", solution);
-            break;
-        } else {
-            println!("That problem is not available.");
-            continue;
-        }
+        match dispatch.get(&choice) {
+            Some(x) => {
+                println!("~~~ RUNNING PROBLEM #{} NOW ~~~", choice);
+                println!("Solution is: {}", x);
+                break;
+            }
+            None => {
+                println!("That problem is not available.");
+                continue;
+            }
+        };
     }
 }
