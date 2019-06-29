@@ -1,4 +1,5 @@
 use std::io;
+mod problems;
 
 fn main() {
     println!("Welcome to my Project Euler program.");
@@ -17,7 +18,7 @@ fn main() {
             }
         };
         println!("You chose Problem #{}.", choice);
-        println!("~~~ RUNNINNG PROBLEM #{} NOW ~~~", choice);
+        problems::run(choice);
         break;
     }
 }
