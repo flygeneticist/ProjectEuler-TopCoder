@@ -9,8 +9,9 @@ fn main() {
     println!("Welcome to my Project Euler program.");
 
     let mut dispatch = HashMap::new();
-    // add problems to dispacter hash table
+    // add problems to dispatcher hash table
     dispatch.insert(1, problems::p1());
+    dispatch.insert(2, problems::p2());
 
     loop {
         println!(
