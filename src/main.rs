@@ -1,23 +1,13 @@
 
-use std::collections::HashMap;
 use std::io;
-// import all problems
-mod problems;
+mod problems; // import all problems
 
 
 fn main() {
     println!("Welcome to my Project Euler program.");
 
-    let mut dispatch = HashMap::new();
-    // add problems to dispatcher hash table
-    dispatch.insert(1, problems::p1());
-    dispatch.insert(2, problems::p2());
-
     loop {
-        println!(
-            "Please enter the number of the Euler problem you wish to run:\n{:?}",
-            dispatch.keys()
-        );
+        println!("Please enter the number of the Euler problem you wish to run:");
 
         let mut choice = String::new();
         io::stdin()
@@ -32,17 +22,17 @@ fn main() {
         };
 
         println!("You chose Problem #{}.", choice);
+        let result = dispatcher(choice);
+        println!("{}", result);
+        break;
+    }
+}
 
-        match dispatch.get(&choice) {
-            Some(x) => {
-                println!("~~~ RUNNING PROBLEM #{} NOW ~~~", choice);
-                println!("Solution is: {}", x);
-                break;
-            }
-            None => {
-                println!("That problem is not available.");
-                continue;
-            }
-        };
+fn dispatcher(choice: u32) -> String {
+    match choice {
+        1 => problems::p1(),
+        10 => problems::p10(),
+        13 => problems::p13(),
+        _ => "That problem is not available.".to_string(),
     }
 }

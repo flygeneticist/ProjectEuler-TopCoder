@@ -1,3 +1,7 @@
+use std::fs::File;
+use std::io::BufRead;
+use std::io::BufReader;
+
 pub fn p1() -> String {
     // OBJECTIVE: Find the sum of all the multiples of 3 or 5 below 1000.
     // SOLUTION:
@@ -15,7 +19,7 @@ pub fn p1() -> String {
     (threes + fives - fifteens).to_string()
 }
 
-pub fn p2() -> String {
+pub fn p10() -> String {
     // OBJECTiVE: Find the sum of all the primes below two million.
     // ex. The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.
     // SOLUTION:
@@ -41,4 +45,25 @@ pub fn p2() -> String {
         }
     }
     sum.to_string()
+}
+
+pub fn p13() -> String {
+    // OBJECTiVE: Work out the first ten digits of the sum of the following one-hundred 50-digit numbers.
+    // SOLUTION:
+    let mut sum: f64 = 0.0;
+    // Read in the file
+    let f = File::open("euler_prob_13_data.txt").unwrap();
+    let file = BufReader::new(&f);
+    // for each line in the file...
+    for (_num, line) in file.lines().enumerate() {
+        // 1. convert to f64
+        let n = line.unwrap().parse::<f64>().unwrap();
+        // 2. add to a growing sum value
+        sum = sum + n;
+    }
+    // take only the first 10 char of sum
+    match sum.to_string().get(0..10) {
+        Some(x) => x.to_string(),
+        None => "".to_string(),
+    }
 }
