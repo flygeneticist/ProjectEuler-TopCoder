@@ -67,16 +67,17 @@ pub fn p11() -> String {
         grid.push(a);
     }
 
+    // find all left/right/up/down
     for l in 0..20 {
         for m in 0..16 {
             // let n = n as i32;
             // right/left products
-            let prod = grid[l][m]*grid[l][m+1]*grid[l][m+2]*grid[l][m+3];
+            let prod = grid[l][m] * grid[l][m+1] * grid[l][m+2] * grid[l][m+3];
             if prod > max_product {
                 max_product = prod;
             }
             // up/down products
-            let prod = grid[m][l]*grid[m+1][l]*grid[m+2][l]*grid[m+3][l];
+            let prod = grid[m][l] * grid[m+1][l] * grid[m+2][l] * grid[m+3][l];
             if prod > max_product {
                 max_product = prod;
             }
@@ -86,7 +87,7 @@ pub fn p11() -> String {
     // find all diagonal products
     for l in 0..16 {
         for m in 0..16 {
-            let prod = grid[l][m]*grid[l+1][m+1]*grid[l+2][m+2]*grid[l+3][m+3];
+            let prod = grid[l][m] * grid[l+1][m+1] * grid[l+2][m+2] * grid[l+3][m+3];
             if prod > max_product {
                 max_product = prod;
             }
@@ -94,13 +95,13 @@ pub fn p11() -> String {
     }
     for l in 3..20 {
         for m in 0..16 {
-            let prod = grid[l][m]*grid[l-1][m+1]*grid[l-2][m+2]*grid[l-3][m+3];
+            let prod = grid[l][m] * grid[l-1][m+1] * grid[l-2][m+2] * grid[l-3][m+3];
             if prod > max_product {
                 max_product = prod;
             }
         }
     }
-    format!("{}", max_product)
+    max_product.to_string()
 }
 
 pub fn p12() -> String {
