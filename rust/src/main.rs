@@ -35,6 +35,7 @@ fn dispatcher(choice: u32) -> String {
         11 => problems::p11(),
         12 => problems::p12(),
         13 => problems::p13(),
+        14 => problems::p14(),
         _ => "That problem is not available.".to_string(),
     }
 }

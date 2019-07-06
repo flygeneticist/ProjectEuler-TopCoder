@@ -121,7 +121,7 @@ pub fn p12() -> String {
 }
 
 pub fn p13() -> String {
-    // OBJECTiVE: Work out the first ten digits of the sum of the following one-hundred 50-digit numbers.
+    // OBJECTIVE: Work out the first ten digits of the sum of the following one-hundred 50-digit numbers.
     // SOLUTION:
     let mut sum: f64 = 0.0;
     // Read in the file
@@ -139,4 +139,20 @@ pub fn p13() -> String {
         Some(x) => x.to_string(),
         None => "".to_string(),
     }
+}
+
+pub fn p14() -> String {
+    // OBJECTIVE: Longest Collatz sequence - Which starting number, under one million, produces the longest chain?
+    // SOLUTION:
+    let max: i64 = 1000000;
+    let mut max_chain = 0;
+    let mut max_n = 0;
+    for n in 2..(max+1) {
+        let n_chain = euler_lib::collatz_seq(n).len();
+        if n_chain > max_chain {
+            max_chain = n_chain;
+            max_n = n;
+        }
+    }
+    format!("The starting n: {}. Sequence length: {}", max_n, max_chain)
 }

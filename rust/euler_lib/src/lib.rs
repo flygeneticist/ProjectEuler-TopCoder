@@ -16,3 +16,17 @@ pub fn find_factors(n: i32) -> Vec<i32> {
     }
 	factors
 }
+
+pub fn collatz_seq(n: i64) -> Vec<i64> {
+    let mut i: i64 = n;
+    let mut chain = vec![];
+    while i > 1 {
+        if i%2 == 0 {
+            i = i/2;
+        } else {
+            i = 3*i + 1;
+        }
+        chain.push(i);
+    }
+    chain
+}
