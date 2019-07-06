@@ -50,5 +50,6 @@ coverage.xml
 docs/_build/
 
 #Added by cargo
-rust/target
+target/
+rust/target/
 rust/**/*.rs.bk
