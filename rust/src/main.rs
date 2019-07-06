@@ -32,6 +32,7 @@ fn dispatcher(choice: u32) -> String {
     match choice {
         1 => problems::p1(),
         10 => problems::p10(),
+        11 => problems::p11(),
         12 => problems::p12(),
         13 => problems::p13(),
         _ => "That problem is not available.".to_string(),
