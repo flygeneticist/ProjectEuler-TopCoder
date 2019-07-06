@@ -1,10 +1,7 @@
 [package]
-name = "project_euler"
+name = "euler_lib"
 version = "0.1.0"
 authors = ["Kevin Keller <flygeneticist@gmail.com>"]
 edition = "2018"
 
-[workspace]
-
 [dependencies]
-euler_lib = { path = "euler_lib" }

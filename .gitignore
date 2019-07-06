@@ -50,8 +50,5 @@ coverage.xml
 docs/_build/
 
 #Added by cargo
-#
-#already existing elements are commented out
-
-/target
-**/*.rs.bk
+rust/target
+rust/**/*.rs.bk
